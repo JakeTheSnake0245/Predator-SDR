@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predator SDR</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 760px;
+      width: 100%;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .logo {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #58a6ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: #8b949e;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1f6feb33;
+      color: #58a6ff;
+      border: 1px solid #1f6feb;
+      border-radius: 20px;
+      padding: 0.3rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #58a6ff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: #8b949e;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .stack-item {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .stack-item .label {
+      color: #8b949e;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+    }
+
+    .stack-item .value {
+      color: #e6edf3;
+      font-weight: 600;
+    }
+
+    .roadmap-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .roadmap-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: #8b949e;
+    }
+
+    .roadmap-list li.done {
+      color: #3fb950;
+    }
+
+    .roadmap-list li .icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .build-section {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+
+    .build-section code {
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 0.88rem;
+      color: #79c0ff;
+      line-height: 1.8;
+      display: block;
+    }
+
+    .build-section .comment {
+      color: #484f58;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      color: #484f58;
+      font-size: 0.85rem;
+    }
+
+    .footer a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">📡</div>
+      <h1>Predator SDR</h1>
+      <p class="tagline">Lowering the barrier to entry for the electromagnetic environment</p>
+      <span class="badge">Built on SDR++</span>
+    </div>
+
+    <div class="card">
+      <h2>About</h2>
+      <p>
+        Predator SDR is a fork of <strong style="color:#e6edf3">SDR++</strong>, reimagined with a cleaner,
+        more mission-focused interface. It is designed for operators who want to monitor and understand
+        the EM environment without a steep learning curve.
+      </p>
+      <p>
+        The project currently targets <strong style="color:#e6edf3">Android</strong> as its primary platform,
+        with Linux, Windows, and macOS builds on the roadmap.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Tech Stack</h2>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <div class="label">Core Language</div>
+          <div class="value">C++17</div>
+        </div>
+        <div class="stack-item">
+          <div class="label">GUI</div>
+          <div class="value">Dear ImGui</div>
+        </div>
+        <div class="stack-item">
+          <div class="label">Graphics</div>
+          <div class="value">OpenGL / GLES 3</div>
+        </div>
+        <div class="stack-item">
+          <div class="label">Build System</div>
+          <div class="value">CMake + Gradle</div>
+        </div>
+        <div class="stack-item">
+          <div class="label">DSP</div>
+          <div class="value">FFTW3 + Volk</div>
+        </div>
+        <div class="stack-item">
+          <div class="label">Android</div>
+          <div class="value">Kotlin / JNI</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Roadmap</h2>
+      <ul class="roadmap-list">
+        <li class="done"><span class="icon">✅</span> Android app</li>
+        <li><span class="icon">⬜</span> Linux build</li>
+        <li><span class="icon">⬜</span> Windows build</li>
+        <li><span class="icon">⬜</span> Remote SDR ecosystem — link apps to remote SDR nodes</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Linux Build Instructions</h2>
+      <div class="build-section">
+        <code>
+          <span class="comment"># Install dependencies</span><br/>
+          sudo apt install cmake libfftw3-dev libglfw3-dev \<br/>
+          &nbsp;&nbsp;librtlsdr-dev libhackrf-dev libairspy-dev \<br/>
+          &nbsp;&nbsp;portaudio19-dev libsoapysdr-dev<br/>
+          <br/>
+          <span class="comment"># Build</span><br/>
+          mkdir build &amp;&amp; cd build<br/>
+          cmake .. -DCMAKE_BUILD_TYPE=Release<br/>
+          make -j$(nproc)<br/>
+          sudo make install
+        </code>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Licensed under <strong>GPLv3</strong> &mdash; Built on <a href="https://github.com/AlexandreRouma/SDRPlusPlus" target="_blank">SDR++</a></p>
+    </div>
+  </div>
+</body>
+</html>
